@@ -13,5 +13,6 @@ From some of the research I have been doing online, Canvas might be my best tool
 --------
 https://trello.com/b/hvzEqpyP/project-1-game
 
-![alt text](https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738ed&attid=0.1&disp=safe&zw"wireframe #1")<br/>
+https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738ed&attid=0.1&disp=safe&zw
 
+https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738ed&attid=0.3&disp=safe&zw
