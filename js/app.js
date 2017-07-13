@@ -1,10 +1,12 @@
 var PlayerOne; 
 var Obstacles = [];
+var Background;
 var Score;
 
 function startGame() {
-  PlayerOne = new component(30, 30,  "smiley.gif", 10, 120, "image");
+  PlayerOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
   PlayerOne.gravity = 0.05;
+  Background = new component(656, 270, "citymarket.jpg", 0, 0, "image");
   Score = new component("30px", "Consolas", "blue", 280, 40, "text");
     GameArea.start();
 }
@@ -13,8 +15,8 @@ console.log("working");
 var GameArea = {
   canvas:document.createElement("canvas"),
   start:function() {
-    this.canvas.width = 700;
-    this.canvas.height = 500;
+    this.canvas.width = 750;
+    this.canvas.height = 650;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas,document.body.childNodes[0]);
       this.frameNo = 0;
@@ -28,6 +30,10 @@ console.log("still working");
 
 function component(width, height, color, x, y, type) {
   this.type = type;
+  if (type == "image") {
+    this.image = new Image();
+    this.image.src = color;
+  }
   this.score = 0;
   this.width = width;
   this.height = height;
@@ -39,7 +45,9 @@ function component(width, height, color, x, y, type) {
   this.gravitySpeed = 0;
   this.update = function() {
     ctx = GameArea.context;
-    if (this.type == "text") {
+    if (type == "image") {
+      ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    } else if (this.type == "text") {
       ctx.font = this.width + " " + this.height;
       ctx.fillStyle = color;
       ctx.fillText(this.text, this.x, this.y);
@@ -67,7 +75,7 @@ function component(width, height, color, x, y, type) {
     var mytop = this.y;
     var mybottom = this.y + (this.height);
     var otherleft = otherobj.x;
-    var otherright = otherobj.x + (otherobj.wdith);
+    var otherright = otherobj.x + (otherobj.width);
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + (otherobj.height);
     var crash = true;
@@ -96,8 +104,8 @@ function updateGameArea() {
     minGap = 50;
     maxGap = 200;
     gap = Math.floor(Math.random() * (maxGap-minGap + 1) + minGap);
-    Obstacles.push(new component(10, height, "red", x, 0));
-    Obstacles.push(new component (10, x - height - gap, "red", x, height + gap));
+    Obstacles.push(new component(20, height, "img/cartoon-tree.svg", x, 0, "image"));
+    Obstacles.push(new component (20, x - height - gap, "img/cartoon-tree.svg", x, height + gap, "image"));
   }
   for (i = 0; i < Obstacles.length; i += 1) {
     Obstacles[i].x += -1;
@@ -118,5 +126,4 @@ function everyinterval(n) {
 function fly(n) {
   PlayerOne.gravity = n;
 }
-
 console.log("last still working");

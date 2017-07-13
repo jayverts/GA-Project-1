@@ -1,3 +1,11 @@
-p {
-	color: blue;
+button {
+position: relative;
+bottom: 400px;
+right: -270px;
+}
+
+canvas {
+  position: relative;
+  top: 28px;
+  right: -225px;
 }
