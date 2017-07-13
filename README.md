@@ -16,3 +16,12 @@ https://trello.com/b/hvzEqpyP/project-1-game
 https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738ed&attid=0.1&disp=safe&zw
 
 https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738ed&attid=0.3&disp=safe&zw
+
+
+
+7/12/17
+--------
+
+Did some research today on Canvas. Still have no idea how to use it but I am going to jump in and see how it goes.
+
+Night update: Got the background to move. Can't get the box to move yet. Will work on it more tomorrow.
