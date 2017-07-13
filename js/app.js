@@ -3,7 +3,7 @@ var Obstacles = [];
 var Score;
 
 function startGame() {
-  PlayerOne = new component(30, 30, "green", 10, 120);
+  PlayerOne = new component(30, 30,  "smiley.gif", 10, 120, "image");
   PlayerOne.gravity = 0.05;
   Score = new component("30px", "Consolas", "blue", 280, 40, "text");
     GameArea.start();
@@ -115,7 +115,8 @@ function everyinterval(n) {
   return false;
 }
 
-function accelerate(n) {
+function fly(n) {
   PlayerOne.gravity = n;
 }
+
 console.log("last still working");

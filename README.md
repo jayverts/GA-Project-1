@@ -25,3 +25,9 @@ https://mail.google.com/mail/u/0/?ui=2&ik=cf5c9d8655&view=att&th=15d32ce2e3b738e
 Did some research today on Canvas. Still have no idea how to use it but I am going to jump in and see how it goes.
 
 Night update: Got the background to move. Can't get the box to move yet. Will work on it more tomorrow.
+
+
+
+7/13/17
+--------
+Worked on the buttons again. Can't seem to figure out how to get it to move back and forth. I did find a function online that springs the object up and that seems to work. Might have to stick with that over the arrow keys.
