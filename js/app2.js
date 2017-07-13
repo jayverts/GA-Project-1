@@ -1,4 +1,5 @@
-var PlayerOne; 
+var PlayerOne;
+var PlayerTwo;
 var Obstacles = [];
 var Background;
 var Score;
@@ -6,7 +7,9 @@ var Score;
 function startGame() {
   PlayerOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
   PlayerOne.gravity = 0.05;
-  Background = new component(656, 270, "img/Background.jpg", 0, 0, "image");
+  PlayerTwo = new component(30, 30,"red", 10, 120);
+  PlayerTwo.gravity = 0.05;
+  Background = new component(656, 270, "http://www.vectorimages.org/09/0920100513112017708.jpg", 0, 0, "image");
   Score = new component("30px", "Consolas", "blue", 280, 40, "text");
     GameArea.start();
 }
@@ -115,6 +118,8 @@ function updateGameArea() {
   Score.update();
   PlayerOne.newPos();
   PlayerOne.update();
+  PlayerTwo.newPos();
+  PlayerTwo.update();
 }
 console.log("still still still still working");
 
@@ -125,5 +130,9 @@ function everyinterval(n) {
 
 function fly(n) {
   PlayerOne.gravity = n;
+}
+
+function flier(n) {
+  PlayerTwo.gravity = n;
 }
 console.log("last still working");

@@ -31,3 +31,5 @@ Night update: Got the background to move. Can't get the box to move yet. Will wo
 7/13/17
 --------
 Worked on the buttons again. Can't seem to figure out how to get it to move back and forth. I did find a function online that springs the object up and that seems to work. Might have to stick with that over the arrow keys.
+
+Added the bird as an object and a tree as an obstacle. 
