@@ -152,7 +152,6 @@ function sink(e) {
   BirdTwo.gravity = 0.05;
   Sky.width = Sky.width;
  }
-
 }
 document.onkeydown = fly;
 document.onkeyup = sink;
