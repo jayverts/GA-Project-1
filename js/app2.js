@@ -2,7 +2,6 @@ var BirdOne;
 var BirdTwo;
 var Obstacles = [];
 var Background;
-//var Score;
 
 function startGame() {
   BirdOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
@@ -10,8 +9,7 @@ function startGame() {
   BirdTwo = new component(30, 30,"img/bird2.png", 10, 120,"image");
   BirdTwo.gravity = 0.05;
   Background = new component(656, 270, "http://www.vectorimages.org/09/0920100513112017708.jpg", 0, 0, "image");
-  //Score = new component("30px", "Consolas", "blue", 280, 40, "text");
-    GameArea.start();
+    Sky.start();
 }
 console.log("working");
 
@@ -31,7 +29,7 @@ function component(width, height, color, x, y, type) {
   this.gravity = 0;
   this.gravitySpeed = 0;
   this.update = function() {
-    ctx = GameArea.context;
+    ctx = Sky.context;
     if (type == "image") {
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     } else if (this.type == "text") {
@@ -50,7 +48,7 @@ function component(width, height, color, x, y, type) {
     this.hitBottom();
   }
   this.hitBottom = function() {
-    var bottom = GameArea.canvas.height - this.height;
+    var bottom = Sky.canvas.height - this.height;
     if (this.y > bottom) {
         this.y = bottom;
         this.gravitySpeed = 0;
@@ -74,7 +72,7 @@ function component(width, height, color, x, y, type) {
 }
 console.log ("still working");
 
-var GameArea = {
+var Sky = {
   canvas:document.createElement("canvas"),
   start:function() {
     this.canvas.width = 750;
@@ -82,7 +80,7 @@ var GameArea = {
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas,document.body.childNodes[0]);
       this.frameNo = 0;
-      this.interval = setInterval(updateGameArea, 20);
+      this.interval = setInterval(updateSky, 20);
   },
   clear:function() {
     this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
@@ -90,7 +88,7 @@ var GameArea = {
 }
 console.log("still still working");
 
-function updateGameArea() {
+function updateSky() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   console.log("kjahsd)");
   for (i = 0; i < Obstacles.length; i+= 1) {
@@ -102,10 +100,10 @@ function updateGameArea() {
       window.location.reload();
     }
   }
-  GameArea.clear();
-  GameArea.frameNo += 1;
-  if (GameArea.frameNo == 1 || everyinterval(150)) {
-    x = GameArea.canvas.width;
+  Sky.clear();
+  Sky.frameNo += 1;
+  if (Sky.frameNo == 1 || everyinterval(150)) {
+    x = Sky.canvas.width;
     minHeight = 20;
     maxHeight = 200;
     height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
@@ -119,8 +117,7 @@ function updateGameArea() {
     Obstacles[i].x += -1;
     Obstacles[i].update();
   }
-  //Score.text ="SCORE: " + GameArea.frameNo;
-  //Score.update();
+ 
   BirdOne.newPos();
   BirdOne.update();
   BirdTwo.newPos();
@@ -129,15 +126,33 @@ function updateGameArea() {
 console.log("still still still still working");
 
 function everyinterval(n) {
-  if ((GameArea.frameNo / n) % 1 == 0) {return true;}
+  if ((Sky.frameNo / n) % 1 == 0) {return true;}
   return false;
 }
+var xPos = 0;
+var yPos = 0;
 
-function fly(n) {
-  BirdOne.gravity = n;
+function fly(e) {
+  if (e.keyCode == 38) {
+  BirdOne.gravity = -0.2;
+  Sky.width = Sky.width;
+ } 
+ if (e.keyCode == 65) {
+  BirdTwo.gravity = -0.2;
+  Sky.Width = Sky.width;
+ }
 }
 
-function flier(n) {
-  BirdTwo.gravity = n;
+function sink(e) {
+  if (e.keyCode == 38) { 
+  BirdOne.gravity = 0.05;
+  Sky.width = Sky.width;
+ }
+ if (e.keyCode == 65) {
+  BirdTwo.gravity = 0.05;
+  Sky.width = Sky.width;
+ }
+
 }
-console.log("last still working");
+document.onkeydown = fly;
+document.onkeyup = sink;
