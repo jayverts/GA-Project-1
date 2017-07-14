@@ -1,35 +1,19 @@
-var PlayerOne;
-var PlayerTwo;
+var BirdOne;
+var BirdTwo;
 var Obstacles = [];
 var Background;
-var Score;
+//var Score;
 
 function startGame() {
-  PlayerOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
-  PlayerOne.gravity = 0.05;
-  PlayerTwo = new component(30, 30,"red", 10, 120);
-  PlayerTwo.gravity = 0.05;
+  BirdOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
+  BirdOne.gravity = 0.05;
+  BirdTwo = new component(30, 30,"img/bird2.png", 10, 120,"image");
+  BirdTwo.gravity = 0.05;
   Background = new component(656, 270, "http://www.vectorimages.org/09/0920100513112017708.jpg", 0, 0, "image");
-  Score = new component("30px", "Consolas", "blue", 280, 40, "text");
+  //Score = new component("30px", "Consolas", "blue", 280, 40, "text");
     GameArea.start();
 }
 console.log("working");
-
-var GameArea = {
-  canvas:document.createElement("canvas"),
-  start:function() {
-    this.canvas.width = 750;
-    this.canvas.height = 650;
-    this.context = this.canvas.getContext("2d");
-    document.body.insertBefore(this.canvas,document.body.childNodes[0]);
-      this.frameNo = 0;
-      this.interval = setInterval(updateGameArea, 20);
-  },
-  clear:function() {
-    this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
-  }
-}
-console.log("still working");
 
 function component(width, height, color, x, y, type) {
   this.type = type;
@@ -88,13 +72,34 @@ function component(width, height, color, x, y, type) {
     return crash;
   }
 }
-console.log ("still still still working");
+console.log ("still working");
+
+var GameArea = {
+  canvas:document.createElement("canvas"),
+  start:function() {
+    this.canvas.width = 750;
+    this.canvas.height = 650;
+    this.context = this.canvas.getContext("2d");
+    document.body.insertBefore(this.canvas,document.body.childNodes[0]);
+      this.frameNo = 0;
+      this.interval = setInterval(updateGameArea, 20);
+  },
+  clear:function() {
+    this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
+  }
+}
+console.log("still still working");
 
 function updateGameArea() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+  console.log("kjahsd)");
   for (i = 0; i < Obstacles.length; i+= 1) {
-    if (PlayerOne.crash(Obstacles[i])) {
-        return;
+    if (BirdOne.crash(Obstacles[i])) {
+      alert("Player 2 Wins! Play again?");
+      window.location.reload(); 
+    } else if (BirdTwo.crash(Obstacles[i])) {
+      alert("Player 1 Wins! Play again?"); 
+      window.location.reload();
     }
   }
   GameArea.clear();
@@ -107,19 +112,19 @@ function updateGameArea() {
     minGap = 50;
     maxGap = 200;
     gap = Math.floor(Math.random() * (maxGap-minGap + 1) + minGap);
-    Obstacles.push(new component(20, height, "img/airplane.jpg", x, 0, "image"));
-    Obstacles.push(new component (20, x - height - gap, "img/cartoon-tree.svg", x, height + gap, "image"));
+    Obstacles.push(new component(60, height,"img/plane2.png", x, 0, "image"));
+    Obstacles.push(new component (60, x - height - gap, "img/cartoon-tree.svg", x, height + gap, "image"));
   }
   for (i = 0; i < Obstacles.length; i += 1) {
     Obstacles[i].x += -1;
     Obstacles[i].update();
   }
-  Score.text ="SCORE: " + GameArea.frameNo;
-  Score.update();
-  PlayerOne.newPos();
-  PlayerOne.update();
-  PlayerTwo.newPos();
-  PlayerTwo.update();
+  //Score.text ="SCORE: " + GameArea.frameNo;
+  //Score.update();
+  BirdOne.newPos();
+  BirdOne.update();
+  BirdTwo.newPos();
+  BirdTwo.update();
 }
 console.log("still still still still working");
 
@@ -129,10 +134,10 @@ function everyinterval(n) {
 }
 
 function fly(n) {
-  PlayerOne.gravity = n;
+  BirdOne.gravity = n;
 }
 
 function flier(n) {
-  PlayerTwo.gravity = n;
+  BirdTwo.gravity = n;
 }
 console.log("last still working");
