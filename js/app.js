@@ -10,23 +10,7 @@ function startGame() {
   Score = new component("30px", "Consolas", "blue", 280, 40, "text");
     Sky.start();
 }
-console.log("working");
-
-var Sky = {
-  canvas:document.createElement("canvas"),
-  start:function() {
-    this.canvas.width = 750;
-    this.canvas.height = 650;
-    this.context = this.canvas.getContext("2d");
-    document.body.insertBefore(this.canvas,document.body.childNodes[0]);
-      this.frameNo = 0;
-      this.interval = setInterval(updateSky, 20);
-  },
-  clear:function() {
-    this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
-  }
-}
-console.log("still working");
+//console.log("working");
 
 function component(width, height, color, x, y, type) {
   this.type = type;
@@ -85,15 +69,33 @@ function component(width, height, color, x, y, type) {
     return crash;
   }
 }
-console.log ("still still still working");
+//console.log ("still still still working");
+
+var Sky = {
+  canvas:document.createElement("canvas"),
+  start:function() {
+    this.canvas.width = 750;
+    this.canvas.height = 650;
+    this.context = this.canvas.getContext("2d");
+    document.body.insertBefore(this.canvas,document.body.childNodes[0]);
+      this.frameNo = 0;
+      this.interval = setInterval(updateSky, 20);
+  },
+  clear:function() {
+    this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
+  }
+}
+//console.log("still working");
+
 
 function updateSky() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for (i = 0; i < Obstacles.length; i+= 1) {
     if (Bird.crash(Obstacles[i])) {
-        return;
-    }
+      alert("SQUUUUUUUISH! Play again?");
+      window.location.reload(); 
   }
+}
   Sky.clear();
   Sky.frameNo += 1;
   if (Sky.frameNo == 1 || everyinterval(150)) {
@@ -116,7 +118,7 @@ function updateSky() {
   Bird.newPos();
   Bird.update();
 }
-console.log("still still still still working");
+//console.log("still still still still working");
 
 function everyinterval(n) {
   if ((Sky.frameNo / n) % 1 == 0) {return true;}

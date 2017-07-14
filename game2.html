@@ -6,13 +6,24 @@
 	<link rel="stylesheet" href="css/style.css">
   <style>
     canvas {
-      border: 1px solid #d3d3d3;
+      border: 5px groove green;
       background-image: url("http://www.vectorimages.org/09/0920100513112017708.jpg");
       background-size: cover;
     }
   </style>
 </head>
-<body onload = "startGame()">
+<body id="day" onload = "startGame()">
+<div class="blue">
+  <p>Blue Bird:</p>
+  <p>Press "Up Key" to Fly!!</p>
+  <p>Release to relax.</p>
+</div>
+<div id="purple">
+  <p>Purple Bird:</p>
+  <p>Press "A" to Fly!!</p>
+  <p>Release to relax.</p>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="js/app2.js"></script>
 </body>
