@@ -4,18 +4,46 @@ canvas {
   right: -225px;
 }
 
+#landing {
+  background-image: url("http://www.magic4walls.com/wp-content/uploads/2014/03/art-cartoon-funny-game-artwork-angry-birds-hd-wallpaper.jpg");
+  background-size: cover;
+}
+
+#players {
+  position: relative;
+  top: -30px;
+  left: 400px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+  color: whitesmoke;
+}
+
+a{
+  color: yellow;
+}
+
 .blue {
   position: relative;
   left: 1000px;
-  bottom: 500px;
+  bottom: 615px;
+  font-family: 'Permanent Marker', cursive;
+  color: lime;
 }
 
 #purple {
   position: relative;
-  right: -80px;
-  bottom: 590px;
+  right: -75px;
+  bottom: 735px;
+  font-family: 'Permanent Marker', cursive;
+  color: lime;
 }
+
 #day {
   background-image: url("https://lh3.googleusercontent.com/qoE5xrO4XkRjJ8eoe9xRy6mFA0iEZqjhGncNWEZYtpVrG3vmUyI6GPsnUUHq9qk7nQ=h900");
+  background-size: cover;
+}
+
+#night {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/be/64/89/be648984a8b42c11cc7843fb5f74e7ac.jpg");
   background-size: cover;
 }

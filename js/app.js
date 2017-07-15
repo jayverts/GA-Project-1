@@ -12,6 +12,17 @@ function startGame() {
 }
 //console.log("working");
 
+var highScore = localStorage.getItem("highScore");
+
+if(highScore !== null){
+    if (Score > highScore) {
+        localStorage.setItem("highScore", Score);      
+    }
+}
+else{
+    localStorage.setItem("highScore", Score);
+}
+
 function component(width, height, color, x, y, type) {
   this.type = type;
   if (type == "image") {
@@ -106,8 +117,8 @@ function updateSky() {
     minGap = 50;
     maxGap = 200;
     gap = Math.floor(Math.random() * (maxGap-minGap + 1) + minGap);
-    Obstacles.push(new component(60, height, "img/plane2.png", x, 0, "image"));
-    Obstacles.push(new component (60, x - height - gap, "img/cartoon-tree.svg", x, height + gap, "image"));
+    Obstacles.push(new component(60, height, "img/spaceship.png", x, 0, "image"));
+    Obstacles.push(new component (60, x - height - gap, "img/scarytree2.png", x, height + gap, "image"));
   }
   for (i = 0; i < Obstacles.length; i += 1) {
     Obstacles[i].x += -1;

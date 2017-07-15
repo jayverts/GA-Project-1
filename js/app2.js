@@ -93,10 +93,10 @@ function updateSky() {
   console.log("kjahsd)");
   for (i = 0; i < Obstacles.length; i+= 1) {
     if (BirdOne.crash(Obstacles[i])) {
-      alert("Player 2 Wins! Play again?");
+      alert("Purple Bird Wins! Play again?");
       window.location.reload(); 
     } else if (BirdTwo.crash(Obstacles[i])) {
-      alert("Player 1 Wins! Play again?"); 
+      alert("Blue Bird Wins! Play again?"); 
       window.location.reload();
     }
   }
