@@ -45,12 +45,14 @@ function component(width, height, color, x, y, type) {
       ctx.fillRect(this.x, this.y, this.width, this.height);
     }
   }
+  //is updating the position of the bird on the game.
   this.newPos = function() {
     this.gravitySpeed += this.gravity;
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
     this.hitBottom();
   }
+  //doesn't allow the bird to below the floor of the game.
   this.hitBottom = function() {
     var bottom = Sky.canvas.height - this.height;
     if (this.y > bottom) {
@@ -110,14 +112,17 @@ function updateSky() {
   //setting the height and width of the obstacles 
   Sky.clear();
   Sky.frameNo += 1;
+  //presenting a new obstacle every 150 frames.
   if (Sky.frameNo == 1 || everyinterval(150)) {
     x = Sky.canvas.width;
     minHeight = 20;
+    //creating the max height of the obstacles.
     maxHeight = 200;
     height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
     minGap = 50;
     maxGap = 200;
     gap = Math.floor(Math.random() * (maxGap-minGap + 1) + minGap);
+    //creating both the top and botom obstacles 
     Obstacles.push(new component(60, height,"img/plane2.png", x, 0, "image"));
     Obstacles.push(new component (60, x - height - gap, "img/cartoon-tree.svg", x, height + gap, "image"));
   }
