@@ -33,3 +33,12 @@ Night update: Got the background to move. Can't get the box to move yet. Will wo
 Worked on the buttons again. Can't seem to figure out how to get it to move back and forth. I did find a function online that springs the object up and that seems to work. Might have to stick with that over the arrow keys.
 
 Added the bird as an object and a tree as an obstacle. 
+
+
+7/14/17
+--------
+Was able to figure out the gravity function. It allows the game to work. The bird will automatically fall back down with this function.
+
+7/15/17
+--------
+Started designing the game a little bit. Adding pitures and a background to make it look a little prettier. 

@@ -3,6 +3,7 @@ var BirdTwo;
 var Obstacles = [];
 var Background;
 
+//creating a function that puts the birds on the page once the page loads. Basically starting the game.
 function startGame() {
   BirdOne = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
   BirdOne.gravity = 0.05;
@@ -11,10 +12,12 @@ function startGame() {
   Background = new component(656, 270, "http://www.vectorimages.org/09/0920100513112017708.jpg", 0, 0, "image");
     Sky.start();
 }
-console.log("working");
+//console.log("working");
 
+//important function here. This is setting up every new component that you add to the game. Whether it be a bird or new obstacle.
 function component(width, height, color, x, y, type) {
   this.type = type;
+  //making sure that canvas allows images.
   if (type == "image") {
     this.image = new Image();
     this.image.src = color;
@@ -29,6 +32,7 @@ function component(width, height, color, x, y, type) {
   this.gravity = 0;
   this.gravitySpeed = 0;
   this.update = function() {
+    //adding images as obstacles.
     ctx = Sky.context;
     if (type == "image") {
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
@@ -54,6 +58,7 @@ function component(width, height, color, x, y, type) {
         this.gravitySpeed = 0;
     } 
   }
+  //this is setting up the crash function. If the birds "x,y" line up with the obstacles it will come up with a crash.
   this.crash = function(tree) {
     var myleft =this.x;
     var myright = this.x + (this.width);
@@ -70,8 +75,9 @@ function component(width, height, color, x, y, type) {
     return crash;
   }
 }
-console.log ("still working");
+//console.log ("still working");
 
+//using canvas to create the moving sky and obstacle effect.
 var Sky = {
   canvas:document.createElement("canvas"),
   start:function() {
@@ -86,11 +92,12 @@ var Sky = {
     this.context.clearRect(0,0, this.canvas.width,this.canvas.height);
   }
 }
-console.log("still still working");
+//console.log("still still working");
 
+//creating the win state. If the bird runs into one of the trees/planes it will say which one hits.
 function updateSky() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-  console.log("kjahsd)");
+  //console.log("kjahsd)");
   for (i = 0; i < Obstacles.length; i+= 1) {
     if (BirdOne.crash(Obstacles[i])) {
       alert("Purple Bird Wins! Play again?");
@@ -123,7 +130,7 @@ function updateSky() {
   BirdTwo.newPos();
   BirdTwo.update();
 }
-console.log("still still still still working");
+//console.log("still still still still working");
 
 function everyinterval(n) {
   if ((Sky.frameNo / n) % 1 == 0) {return true;}
@@ -132,6 +139,7 @@ function everyinterval(n) {
 var xPos = 0;
 var yPos = 0;
 
+//this is creating the same rise and sink function like in the one player game. Just works for both birds.
 function fly(e) {
   if (e.keyCode == 38) {
   BirdOne.gravity = -0.2;

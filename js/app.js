@@ -3,15 +3,17 @@ var Obstacles = [];
 var Background;
 var Score;
 
+//starting the scoreboard and putting the bird on the page upon loading the game.
 function startGame() {
   Bird = new component(30, 30,"img/blue-bird-sm.svg", 10, 120, "image");
   Bird.gravity = 0.05;
   Background = new component(656, 270, "img/Background.jpg", 0, 0, "image");
-  Score = new component("30px", "Consolas", "blue", 280, 40, "text");
+  Score = new component("30px", "Consolas", "yellow", 280, 40, "text");
     Sky.start();
 }
 //console.log("working");
 
+//recording the high score.
 var highScore = localStorage.getItem("highScore");
 
 if(highScore !== null){
@@ -23,6 +25,7 @@ else{
     localStorage.setItem("highScore", Score);
 }
 
+//adding the functions and parameters for all new components.
 function component(width, height, color, x, y, type) {
   this.type = type;
   if (type == "image") {
@@ -64,6 +67,7 @@ function component(width, height, color, x, y, type) {
         this.gravitySpeed = 0;
     } 
   }
+  //setting up the losing state. If bird comes in contact with the obstacle it will return crash.
   this.crash = function(tree) {
     var myleft =this.x;
     var myright = this.x + (this.width);
@@ -82,6 +86,7 @@ function component(width, height, color, x, y, type) {
 }
 //console.log ("still still still working");
 
+//setting up canvas to update al new obstacles and the width and height of the canvas board.
 var Sky = {
   canvas:document.createElement("canvas"),
   start:function() {
@@ -98,7 +103,7 @@ var Sky = {
 }
 //console.log("still working");
 
-
+//losing function.
 function updateSky() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for (i = 0; i < Obstacles.length; i+= 1) {
@@ -136,15 +141,16 @@ function everyinterval(n) {
   return false;
 }
 
+//function that allows the bird to fly when the space bar is press and sink when it is no longer pushed
 function fly(e) {
-  if (e.keyCode == 38) {
+  if (e.keyCode == 32) {
   Bird.gravity = -0.2;
   Sky.width = Sky.width;
  } 
 }
 
 function sink(e) {
-  if (e.keyCode == 38) { 
+  if (e.keyCode == 32) { 
   Bird.gravity = 0.05;
   Sky.width = Sky.width;
  }
