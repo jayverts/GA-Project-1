@@ -107,6 +107,7 @@ function updateSky() {
       window.location.reload();
     }
   }
+  //setting the height and width of the obstacles 
   Sky.clear();
   Sky.frameNo += 1;
   if (Sky.frameNo == 1 || everyinterval(150)) {
