@@ -3,12 +3,13 @@ canvas {
   top: 28px;
   right: -225px;
 }
-
+/*adding the landing background image*/
 #landing {
   background-image: url("http://www.magic4walls.com/wp-content/uploads/2014/03/art-cartoon-funny-game-artwork-angry-birds-hd-wallpaper.jpg");
   background-size: cover;
 }
 
+/*adding the how many players selevtion to the landing page*/
 #players {
   position: relative;
   top: -30px;
@@ -22,6 +23,7 @@ a{
   color: yellow;
 }
 
+/*putting the birds directons on the screen*/
 .blue {
   position: relative;
   left: 1000px;
@@ -38,11 +40,13 @@ a{
   color: lime;
 }
 
+/*adding the two player background images*/
 #day {
   background-image: url("https://lh3.googleusercontent.com/qoE5xrO4XkRjJ8eoe9xRy6mFA0iEZqjhGncNWEZYtpVrG3vmUyI6GPsnUUHq9qk7nQ=h900");
   background-size: cover;
 }
 
+/*adding the single player background*/
 #night {
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/be/64/89/be648984a8b42c11cc7843fb5f74e7ac.jpg");
   background-size: cover;

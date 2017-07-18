@@ -59,6 +59,7 @@ function component(width, height, color, x, y, type) {
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
     this.hitBottom();
+    this.hitTop();
   }
   this.hitBottom = function() {
     var bottom = Sky.canvas.height - this.height;
@@ -67,6 +68,15 @@ function component(width, height, color, x, y, type) {
         this.gravitySpeed = 0;
     } 
   }
+  //adding a top barrier so the birds can't fly out.
+  this.hitTop = function() {
+    var top = Sky.canvas.height;
+    if (this.y < height) {
+        this.y = height;
+        this.gravitySpeed = 0;
+  }
+}
+
   //setting up the losing state. If bird comes in contact with the obstacle it will return crash.
   this.crash = function(tree) {
     var myleft =this.x;

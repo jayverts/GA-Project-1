@@ -51,6 +51,7 @@ function component(width, height, color, x, y, type) {
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
     this.hitBottom();
+    this.hitTop();
   }
   //doesn't allow the bird to below the floor of the game.
   this.hitBottom = function() {
@@ -59,6 +60,15 @@ function component(width, height, color, x, y, type) {
         this.y = bottom;
         this.gravitySpeed = 0;
     } 
+  }
+  //adding a top barrier so the birds can't fly out.
+  this.hitTop = function() {
+    var top = Sky.canvas.height;
+    if (this.y < height) {
+        this.y = height;
+        this.gravitySpeed = 0;
+      //console.log("top");
+    }
   }
   //this is setting up the crash function. If the birds "x,y" line up with the obstacles it will come up with a crash.
   this.crash = function(tree) {
@@ -130,7 +140,6 @@ function updateSky() {
     Obstacles[i].x += -1;
     Obstacles[i].update();
   }
- 
   BirdOne.newPos();
   BirdOne.update();
   BirdTwo.newPos();
